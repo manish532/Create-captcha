@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Captcha</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+   <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;900&family=Lora:wght@600&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+<body>
+    <div class="container mt-5">
+       <div class="row float-center border border-1 p-5 align-center">
+            <form class=" px-4 pt-4 bg-light border border-1 m-auto">
+            
+                <input type="text" class="inp form-control" value="h!*56==d" placeholder="capthca" id="gen_pass"><br>
+                <button type="button" class="bg-success form-control m-auto" onclick="captcha()"> <i class="fa fa-refresh fa-spin" style="color:white"></i> </button><br>
+                <input type="text"  class="form-control mb-4" placeholder="type here" id="userinput">
+                <button type="submit" class="form-control m-auto" id="upload" >SUBMIT</button><br> 
+                <span class="d-none" id="invalid">invalid captcha</span>
+            </form>
+        </div>
+    </div>
+   
+
+    <script>
+
+          
+          function captcha(){
+          
+            var password = "scs2345DHJN56D7D8EX8E848W@#&*_)(+__G748";
+            var final = "";
+           
+            var i = 0;
+            for(i;i<=8;i++){
+                var index = Math.random()*password.length;
+                index = Math.floor(index);
+                final += password[index];
+            }
+           document.getElementById("gen_pass").value=final;
+        }
+        $(document).ready(function(){
+               $("#upload").click(function(e){
+                   e.preventDefault();
+                      var string1 = $("#gen_pass").val();
+                      var string2 = $("#userinput").val();
+                      if(string2 === string1)
+                      {
+            
+                         $("#invalid").addClass("d-none");
+                         alert("hlw sir how can i help you");
+
+                      }
+                      else
+                      {
+                          $("#invalid").removeClass("d-none");
+                      }
+                      
+                    });
+                });
+</script>
+</body>
